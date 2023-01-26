@@ -1,0 +1,22 @@
+service: www-ssr-lambda
+provider:
+  region: ap-southeast-2
+  name: aws
+  stage: prod
+  runtime: nodejs18.x
+  environment:
+functions:
+  api:
+    handler: dist-webserver/ssr/lambda.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+configValidationMode: warn
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+custom:
+  serverless-offline:
+    httpPort: 8000
+    noPrependStageInUrl: true

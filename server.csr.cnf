@@ -1,0 +1,14 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+
+[dn]
+C=PH
+ST=Cebu
+L=Cebu City
+O=Divinety
+OU=Divinety
+emailAddress=melvs.evangelista@gmail.com
+CN = *.divinety.local
